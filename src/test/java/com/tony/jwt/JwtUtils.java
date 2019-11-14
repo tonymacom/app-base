@@ -7,6 +7,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.binary.Base64;
 import org.assertj.core.util.DateUtil;
 import org.junit.Test;
 
@@ -129,6 +130,45 @@ public class JwtUtils {
         String token = Jwts.builder().setPayload(encrypt).setHeader(header).signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
         log.info("sign: {}", token); // eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.RUE0NDU2MzFBMEVDNEUyOThERDY4QUFGNUYzMjkyN0Y3NTQ0NzFGRTEzMEY0OEJEMUY5MzVCRjZFRTE4N0RFMDhBOTkyQTQ0OTJDRkQwRDY4MDI3QUMxNjgwMzg3RDUx.eUFTRr3WU5kRhkMwS2iPmvddCC3EZGgSD6iNofnKVIY
+    }
+
+    @Test
+    @SneakyThrows
+    public void test7() {
+        String secret = "iloveyouiloveyou";
+
+        Map<String, Object> header = new HashMap<>();
+        header.put("alg", "aes");
+
+        String headerStr = JSON.toJSONString(header);
+        String headerBase64 = new String(Base64.encodeBase64(headerStr.getBytes()));
+        log.info("header base64: {}", headerBase64);
+
+
+        Map<String, Object> content = new HashMap<>();
+        content.put("data", 915086);
+        content.put("isLogin", 1);
+        content.put("exp",1573181165);
+        content.put("salt", 9527);
+        String contentStr = JSON.toJSONString(content);
+        log.info("contentStr:{}",new String(Base64.encodeBase64(contentStr.getBytes())));
+
+        String token = headerBase64 + "." + AesUtil.encrypt(contentStr,secret);
+        log.info("token is : {}", token);
+
+
+        Map<String, Object> contentTmp = new HashMap<>();
+        contentTmp.put("data", "945d1a5191355fa7a3e80d933a9df9f5");
+        contentTmp.put("isLogin", 0);
+        contentTmp.put("exp",1573181165);
+        contentTmp.put("salt", 9527);
+        String contentTmpStr = JSON.toJSONString(contentTmp);
+        log.info("contentTmpStr:{}",new String(Base64.encodeBase64(contentTmpStr.getBytes())));
+
+        String tokenTmp = headerBase64 + "." + AesUtil.encrypt(contentTmpStr,secret);
+        log.info("tokenTmp:{}", tokenTmp);
+
+
     }
 
 
