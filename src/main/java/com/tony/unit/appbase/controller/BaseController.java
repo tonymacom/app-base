@@ -26,12 +26,24 @@ public class BaseController {
     }*/
 
     /**
-     * 不能返回值
+     * 能返回值
      * @return
      */
     @RequestMapping(value = "/output")
+    public ResponseData outInputStringYes(){
+        ResponseData data = new ResponseData();
+        data.setData(thridProps.getWechat().getWeb_key());
+        return data;
+    }
+
+    /**
+     * 不能返回值
+     * @return
+     */
+    @RequestMapping(value = "/output_error")
     public ResponseData outInputString(){
         ResponseData data = new ResponseData();
+        // wechatProp为空
         data.setData(thridProps.getWechat().getWeb_key() + "-----" +wechatProp.getWeb_key());
         return data;
     }

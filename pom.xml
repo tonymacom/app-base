@@ -59,6 +59,18 @@
             <version>1.2.51</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.tony.unit</groupId>
+            <artifactId>rate-limiter</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>1.4.3.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
     <build>
