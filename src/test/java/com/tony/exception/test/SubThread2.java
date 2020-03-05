@@ -29,6 +29,9 @@ public class SubThread2 implements Callable<String> {
         } catch (ExecutionException e) {
             System.out.println("get subThread2 Exception");
             e.printStackTrace();
+        } finally {
+            // 关闭连接池
+            executorService.shutdown();
         }
     }
 }
