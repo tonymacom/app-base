@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.1.RELEASE</version>
+        <version>2.2.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -35,39 +35,16 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.tony.unit</groupId>
-            <artifactId>base-filter</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
 
-        <dependency>
-            <groupId>com.auth0</groupId>
-            <artifactId>java-jwt</artifactId>
-            <version>3.8.3</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>0.9.0</version>
-        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.51</version>
         </dependency>
-
         <dependency>
-            <groupId>com.tony.unit</groupId>
-            <artifactId>rate-limiter</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-            <version>1.4.3.RELEASE</version>
+            <groupId>com.yamibuy</groupId>
+            <artifactId>ec-core</artifactId>
+            <version>2.2.5</version>
         </dependency>
 
     </dependencies>
