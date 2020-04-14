@@ -16,7 +16,7 @@ public class DynamicPackage {
      * @param value 物品价值
      * @return
      */
-    public static int ZeroOnePack(int V,int N,int[] weight,int[] value){
+    public static int ZeroOnePack(int N,int V,int[] weight,int[] value){
 
         //初始化动态规划数组int
         int[][] dp = new int[N+1][V+1];

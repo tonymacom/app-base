@@ -38,7 +38,7 @@ public class QuickSortTest {
             System.out.print(StringUtils.join(list,","));
             System.out.println(" //基准值tmp=" + tmp);
         }
-        list[low] = tmp;              //中轴记录到尾
+        list[high] = tmp;              //中轴记录到尾
         System.out.print(StringUtils.join(list,","));
         System.out.println(" //基准值tmp=" + tmp);
         return low;                   //返回中轴的位置下标
